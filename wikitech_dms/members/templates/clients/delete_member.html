@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Delete Member</h1>
+    <p>Are you sure you want to delete the member "{{ member.name }}"?</p>
+    
+    <form method="POST">
+    {% csrf_token %}
+        <button class="bg-light text-danger" type="submit">Yes, delete</button>
+    </form>
+    <br>
+    <a href="{% url 'members' %}">No, take me back</a>
+</div>
+    
+{% endblock %}

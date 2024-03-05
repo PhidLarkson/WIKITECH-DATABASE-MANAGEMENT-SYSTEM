@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wikimedia Technical Group</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <a class="navbar-brand" href="#"> 
+             <svg  version="1.0" xmlns="http://www.w3.org/2000/svg"  width="40.000000pt" height="40.000000pt" viewBox="0 0 300.000000 300.000000"  preserveAspectRatio="xMidYMid meet">  <g transform="translate(0.000000,300.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none"> <path d="M1365 2256 c-150 -29 -298 -108 -405 -217 -92 -93 -92 -91 -11 -137 l69 -40 73 72 c128 123 257 171 438 164 164 -7 278 -57 396 -174 l61 -61 72 41 71 42 -60 67 c-142 158 -323 243 -534 252 -61 3 -127 -1 -170 -9z m290 -40 c132 -29 269 -104 359 -195 54 -54 55 -71 7 -95 -29 -16 -30 -15 -78 30 -123 118 -288 184 -453 184 -136 -1 -309 -72 -415 -172 l-65 -60 -35 22 c-19 12 -35 26 -35 30 0 16 99 109 158 148 126 84 245 121 397 121 55 0 127 -6 160 -13z"/> <path d="M769 1708 c-17 -63 -22 -109 -23 -193 0 -138 20 -220 81 -345 40 -80 61 -109 138 -185 51 -51 118 -107 155 -128 66 -38 181 -79 258 -92 l42 -7 0 84 0 84 -59 12 c-96 20 -193 75 -275 156 -158 156 -215 382 -150 597 3 12 -15 28 -65 58 -38 22 -72 41 -74 41 -3 0 -15 -37 -28 -82z m98 3 c30 -19 31 -22 22 -58 -13 -54 -12 -200 1 -275 13 -73 74 -200 127 -264 42 -52 143 -134 194 -158 20 -9 65 -27 100 -40 59 -21 64 -25 67 -55 5 -53 -10 -62 -71 -45 -313 91 -528 371 -527 688 0 81 4 111 25 204 7 27 20 28 62 3z"/> <path d="M2129 1748 l-67 -39 15 -57 c19 -70 20 -199 3 -272 -7 -30 -28 -89 -48 -130 -68 -144 -231 -275 -389 -312 l-53 -13 0 -83 0 -84 42 7 c280 48 529 274 603 550 22 85 30 228 16 311 -13 78 -39 164 -49 163 -4 -1 -37 -19 -73 -41z m91 -131 c31 -178 -26 -394 -142 -545 -53 -68 -148 -151 -218 -190 -66 -37 -207 -85 -226 -78 -13 5 -16 41 -7 78 2 10 26 23 61 34 247 77 429 312 435 563 1 47 -2 115 -6 151 l-8 65 38 22 38 22 12 -27 c6 -15 17 -58 23 -95z"/> <path d="M1265 1754 c-16 -8 -81 -65 -143 -127 l-112 -112 112 -113 c62 -62 125 -120 140 -128 42 -22 126 -18 173 9 22 12 41 29 43 38 1 8 -38 55 -88 103 -49 49 -90 90 -90 91 0 1 41 42 90 91 50 48 89 95 88 103 -2 8 -23 25 -47 38 -52 27 -122 30 -166 7z m157 -42 c6 -6 10 -13 7 -14 -3 -2 -66 -64 -142 -138 l-137 -134 -45 44 -45 44 77 79 c43 44 96 93 118 109 36 27 46 29 98 26 31 -2 63 -10 69 -16z m2 -393 c-3 -5 -21 -13 -42 -18 -53 -15 -106 3 -160 53 l-45 43 44 45 44 45 82 -80 c45 -44 80 -84 77 -88z"/> <path d="M1585 1754 c-75 -39 -76 -38 30 -144 l95 -95 -94 -94 c-52 -52 -92 -99 -90 -106 3 -6 22 -22 43 -33 47 -27 128 -29 174 -6 31 16 247 222 247 236 0 14 -231 233 -258 245 -38 17 -112 16 -147 -3z m143 -38 c15 -8 69 -57 120 -108 l92 -94 -45 -44 -45 -44 -140 139 c-135 134 -139 140 -117 152 30 17 102 16 135 -1z m57 -276 l39 -40 -44 -45 c-53 -54 -96 -69 -157 -54 -24 6 -43 16 -43 21 0 12 142 155 155 157 6 0 29 -17 50 -39z"/> </g> </svg> 
+             Wikitech Student Fan Club</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'members' %}">Members</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Clubs</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    {% block content %}
+
+    <!-- Sidebar -->
+    <div class="d-flex bg-white" id="wrapper">
+        <div class="bg-light border-right" id="sidebar-wrapper">
+            <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action bg-light">Link 1</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Link 2</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Link 1</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Link 2</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Link 1</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Link 2</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Link 1</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Link 2</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Link 1</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Link 2</a>              
+            </div>
+        </div>
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid p-5">
+                <h1 class="mt-4">Welcome to Wikimedia Technical Group</h1>
+                <p>This is a technical group affiliated with KNUST.</p>
+            </div>
+            
+            <div class="container p-5 mb-5">
+                <section id="about-us">
+                  <h2>About Us</h2>
+                  <p>
+                    The Wikitech Club KNUST is a student-led organization at Kwame Nkrumah University of Science and Technology dedicated to fostering a community of passionate learners and innovators in the field of technology. We provide a platform for students to develop their skills, collaborate on projects, and gain exposure to the latest advancements in the tech industry.
+                  </p>
+                  <p>
+                    Our club welcomes students from all academic backgrounds with an interest in technology. Whether you're a seasoned programmer, a budding entrepreneur, or simply curious about the potential of tech, we have something to offer you.
+                  </p>
+                </section>
+            
+                <section id="mission-vision">
+                  <h2>Mission & Vision</h2>
+                  <b>Mission:</b>
+                  <ul>
+                    <li>To create a stimulating environment where students can explore their tech interests.</li>
+                    <li>To equip students with the necessary skills and knowledge to thrive in the tech industry.</li>
+                    <li>To foster collaboration and innovation among students with diverse tech backgrounds.</li>
+                  </ul>
+                  <b>Vision:</b>
+                  <p>To be a leading student organization at KNUST, empowering the next generation of tech leaders and entrepreneurs in Ghana and beyond.</p>
+                </section>
+            
+                <section id="add-more-fields">
+                  <h2>Join Us</h2>
+                  <p>Fill out the form below to express your interest in joining the Wikitech Club KNUST.</p>
+            
+                  <form method="post">
+                
+                    <div class="form-group">
+                      <label for="more_fields">Want to tell us more? (Optional)</label>
+                      <textarea name="more_fields" id="more_fields" class="form-control" rows="3"></textarea>
+                    </div>
+            
+                    <button type="submit" class="btn btn-primary">Submit</button>
+            
+                    <button type="button" class="btn btn-outline-primary add-more-field">Add More Fields</button>
+                  </form>
+            
+                  <div class="additional-fields"></div>
+                </section>
+            
+              </div>
+        </div>
+    </div>
+    {% endblock %}
+
+
+    <!-- Include Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>

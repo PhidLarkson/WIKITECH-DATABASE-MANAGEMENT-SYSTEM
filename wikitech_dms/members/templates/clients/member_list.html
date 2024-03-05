@@ -1,0 +1,73 @@
+{% extends "base.html" %} 
+{% load static %}
+
+{% block content %}
+<div class="container mx-auto p-5 mt-5 bg-light">
+    <hr>
+    <div class="mt-3" style="font-size:20px; margin-bottom: 10px;">
+        <p> Wikitech Membership List</p>
+    </div><hr>
+
+    <div class="text-dark" style="height: 40px; border: 1px solid grey; background-color: rgb(216, 216, 216);">
+       <a href="">
+            <svg style="float:right;" width="40px" height="40px" viewBox="-12 -12 48.00 48.00" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M18.7115 6.23717L18 5.25H6.00004L5.28852 6.23717L6.03852 8.48717L6.36416 8.89312L9.75004 10.9246V18L11.0304 18.5303L14.0304 15.5303L14.25 15V10.9246L17.6359 8.89312L17.9615 8.48717L18.7115 6.23717ZM16.9595 6.75L16.6263 7.74962L13.1142 9.85688L12.75 10.5V14.6893L11.25 16.1893V10.5L10.8859 9.85688L7.37381 7.74962L7.0406 6.75H16.9595Z" fill="#000000"></path> </g></svg>
+        </a>
+        <a href="{% url 'add_member' %}">
+            <svg style="float:right;" width="40px" height="40px" viewBox="-12 -12 48.00 48.00" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title></title> <g id="Complete"> <g data-name="add" id="add-2"> <g> <line fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="12" x2="12" y1="19" y2="5"></line> <line fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="5" x2="19" y1="12" y2="12"></line> </g> </g> </g> </g></svg>
+
+        </a>
+        
+    </div>
+    <table class="table table-striped" style="font-size: 12px; border: 1px solid grey;">
+        <thead>
+            <tr scope="row">
+                <th scope="col">#</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Date joined</th>
+                <th></th>
+                <th></th>   
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for member in members %}
+            <tr>
+                <th scope="row">{{ member.member_id }}</th>
+                <td>{{ member.first_name.title }}</td>
+                <td> {{ member.last_name.upper }}</td>
+                <td>{{ member.email }}</td>
+                <td>{{ member.date_joined }}</td>
+                <td class="row">
+                    <div class="col">
+                        <a href="{% url 'edit_member' pk=member.pk %}">
+                        <svg width="30px" height="30px" viewBox="-12 -12 48.00 48.00" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Edit / Edit_Pencil_Line_02"> <path id="Vector" d="M4 20.0001H20M4 20.0001V16.0001L14.8686 5.13146L14.8704 5.12976C15.2652 4.73488 15.463 4.53709 15.691 4.46301C15.8919 4.39775 16.1082 4.39775 16.3091 4.46301C16.5369 4.53704 16.7345 4.7346 17.1288 5.12892L18.8686 6.86872C19.2646 7.26474 19.4627 7.46284 19.5369 7.69117C19.6022 7.89201 19.6021 8.10835 19.5369 8.3092C19.4628 8.53736 19.265 8.73516 18.8695 9.13061L18.8686 9.13146L8 20.0001L4 20.0001Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g> </g></svg>
+
+                    </a>
+                    </div>
+                   
+                </td>
+                <!-- <td>
+                    <a href="{% url 'delete_member' pk=member.pk %}">
+                        <svg width="30px" height="30px" viewBox="-10.5 -10.5 42.00 42.00" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" stroke="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>delete [#ff0000]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-179.000000, -360.000000)" fill="#ff0000"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M130.35,216 L132.45,216 L132.45,208 L130.35,208 L130.35,216 Z M134.55,216 L136.65,216 L136.65,208 L134.55,208 L134.55,216 Z M128.25,218 L138.75,218 L138.75,206 L128.25,206 L128.25,218 Z M130.35,204 L136.65,204 L136.65,202 L130.35,202 L130.35,204 Z M138.75,204 L138.75,200 L128.25,200 L128.25,204 L123,204 L123,206 L126.15,206 L126.15,220 L140.85,220 L140.85,206 L144,206 L144,204 L138.75,204 Z" id="delete-[#ff0000]"> </path> </g> </g> </g> </g></svg>
+
+                    </a>
+                </td> -->
+                <td>
+                    <a href="{% url 'view_member' pk=member.pk %}">
+                        <svg width="30px" height="30px" viewBox="-256 -256 1024.00 1024.00" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>open-external</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="icon" fill="#000000" transform="translate(85.333333, 64.000000)"> <path d="M128,63.999444 L128,106.666444 L42.6666667,106.666667 L42.6666667,320 L256,320 L256,234.666444 L298.666,234.666444 L298.666667,362.666667 L4.26325641e-14,362.666667 L4.26325641e-14,64 L128,63.999444 Z M362.666667,1.42108547e-14 L362.666667,170.666667 L320,170.666667 L320,72.835 L143.084945,249.751611 L112.915055,219.581722 L289.83,42.666 L192,42.6666667 L192,1.42108547e-14 L362.666667,1.42108547e-14 Z" id="Combined-Shape"> </path> </g> </g> </g></svg>
+                    </a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3" class="text-center">No members found</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <hr>
+</div>
+
+{% endblock %}

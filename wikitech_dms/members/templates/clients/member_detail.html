@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+
+    {% block content %}
+    <div class="container mt-5 bg-light p-5">
+    <h2>Member: {{ member.first_name }} {{ member.other_names }} {{ member.last_name }}</h2>
+    <br><hr>
+    <p>Email: {{ member.email }}</p>
+    <p>Joined date: {{ member.date_joined }}</p>
+    <p>Role: {{ member.role }}</p>
+    <p>Phone: {{ member.phone }}</p>
+    <p>college: {{ member.college }}</p>
+    <p>Department: {{ member.department }}</p>
+    <p>Program: {{ member.program }}</p>
+    <p>Year: {{ member.graduation_year }}</p>
+    <p>Company: {{ member.company }}</p>
+    <p>Job title: {{ member.job_title }}</p>
+    <p>Status: {{ member.status }}</p>
+
+    <hr>
+
+    <div class="mt-1" style="float: right;">
+        <a href="{% url 'edit_member' member.pk %}">Edit</a>
+  
+   <a class="text-danger" href="{% url 'delete_member' pk=member.pk %}">Delete</a>
+    </div>
+    <br>
+
+   
+</div>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="mx-auto container p-5 bg-light mt-5">
+    <h2>Edit Member</h2>
+    <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button style="float:right;" type="submit">Update</button>
+    </form>
+    </div>
+   
+{% endblock %}
